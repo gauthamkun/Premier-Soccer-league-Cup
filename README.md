@@ -1,2 +1,2 @@
-# City-Football-club
+# Premier Soccer League Cup
 Soccer Tournament web application
