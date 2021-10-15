@@ -8,6 +8,7 @@ Soccer Tournament web application
 4. 👨🏻‍💻 Gautham Krishna
 5. 👩🏻‍💻 Shreya Reddy Bolla
 
+
 #### To Run The Project:
 1. Run the Spring Boot Java File - Go to /src/main/java/io/soccerapp/premiersoccerleagueapp
 2. Run the React App - Go /src/frontend
