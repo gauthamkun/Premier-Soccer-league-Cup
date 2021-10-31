@@ -1,19 +1,20 @@
 import { useState, useEffect } from "react";
 import DatePicker from "react-multi-date-picker";
 import DatePanel from "react-multi-date-picker/plugins/date_panel";
-import { Button, Table, Container, Row, Col } from "react-bootstrap";
-import React from "react"
+import { Button, Table, Container, Row, Col, Dropdown } from "react-bootstrap";
+import React from "react";
+
 
 function Teams({ selectedDates }) {
 
   const [data, setData] = useState([]);
-
+  
   useEffect(() => {
     
     const data = selectedDates.map((date) => {
       return {
         date: date.format("dddd DD MMMM YYYY"),
-        team1: "USA",
+        team1: "USA", 
         team2: "Germany",
         venue: "USA stadium",
       };
@@ -23,9 +24,9 @@ function Teams({ selectedDates }) {
   }, []);
 
   return (
-    <div>
-      <h4>Schedule</h4>
-    <Table striped bordered hover>
+    <div >
+      <h3 >Schedule</h3>
+    <Table>
       <thead>
         <tr>
           <th>Date</th>
@@ -54,8 +55,17 @@ function Teams({ selectedDates }) {
 function Scheduler() {
   const [value, setValue] = useState([]);
   const [showTeams, setTeams] = useState(false);
+  const [dropdownItems,setDropdownItems] = useState(["Ground1","Ground2","Ground3","Ground4","Ground5","Ground6","Ground7","Ground8","Ground9"]);
+  function removeItem(e){
+    console.log(e.target.innerText);
+      let filteredArray = dropdownItems.filter(item => item !== e.target.innerText)
+      setDropdownItems(filteredArray);
+  }
+
+
 
   return (
+    <div>
     <div>
       <DatePicker
         multiple
@@ -68,12 +78,29 @@ function Scheduler() {
       </Button>
       {showTeams ? <Teams selectedDates={value} /> : null}
     </div>
+    <div>
+      <Dropdown>
+        <Dropdown.Toggle variant="success" id="dropdown-basic">
+            Ground Scheduling
+        </Dropdown.Toggle>
+{
+  console.log(dropdownItems)
+}
+  <Dropdown.Menu>
+    {dropdownItems.map((item)=>
+      <Dropdown.Item onClick={removeItem} value = {item}>{item}</Dropdown.Item>
+    )
+    }
+  </Dropdown.Menu>
+</Dropdown>
+    </div>
+    </div>
   );
 }
 
 function Scheduling() {
   return (
-    <div>
+    <div >
       <Container className="mt-10">
         <Row>
         <Col >
