@@ -3,6 +3,7 @@ import DatePicker from "react-multi-date-picker";
 import DatePanel from "react-multi-date-picker/plugins/date_panel";
 import { Button, Table, Container, Row, Col, Dropdown } from "react-bootstrap";
 import React from "react";
+import schedule from './schedule.jpg';
 
 
 function Teams({ selectedDates }) {
@@ -24,7 +25,7 @@ function Teams({ selectedDates }) {
   }, []);
 
   return (
-    <div >
+    <div>
       <h3 >Schedule</h3>
     <Table>
       <thead>
@@ -100,13 +101,11 @@ function Scheduler() {
 
 function Scheduling() {
   return (
-    <div >
-      <Container className="mt-10">
+    <div style={{  
+      backgroundImage: "url(" + schedule + ")"
+    }}>
+       <Container className="mt-10">
         <Row>
-        <Col >
-         <img src={"images/schedule.jpeg"} height='300' width='300'/>
-          </Col>
-        
           <Col xs={2}>
             <h4>Select Date:</h4>
           </Col>
