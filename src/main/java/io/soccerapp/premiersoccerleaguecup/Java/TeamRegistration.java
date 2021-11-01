@@ -20,9 +20,11 @@ public class TeamRegistration {
 		return email;
 	}
 
-	private String password;
+	private String TeamName;
 	
-	private String role;
+	private String Division;
+
+	private String AgeGroup;
 	
 	public TeamRegistration() {
 		
@@ -32,16 +34,17 @@ public class TeamRegistration {
 	
 	@Override
 	public String toString() {
-		return "Login [id=" + id + ", email=" + email + ", password=" + password + ", role=" + role + "]";
+		return "TeamRegistration [id=" + id + ", email=" + email + ", TeamName=" + TeamName + ", Division=" + Division + " , AgeGroup=" + AgeGroup + "]";
 	}
 
 
 
-	public TeamRegistration(String email, String password, String role) {
+	public TeamRegistration(String email, String TeamName, String Division,String AgeGroup) {
 		super();
 		this.email = email;
-		this.password = password;
-		this.role = role;
+		this.TeamName = TeamName;
+		this.Division = Division;
+		this.AgeGroup = AgeGroup;
 	}
 
 
@@ -58,24 +61,26 @@ public class TeamRegistration {
 		this.email = email;
 	}
 
-	public String getPassword() {
-		return password;
+	public String getTeamName() {
+		return TeamName;
 	}
 
-	public void setPassword(String password) {
-		this.password = password;
+	public void setTeamName(String TeamName) {
+		this.TeamName = TeamName;
 	}
 
-	public String getRole() {
-		return role;
+	public String getDivisionRole() {
+		return Division;
+	}
+	public void setDivision(String Division) {
+		this.Division= Division;
 	}
 
-	public void setRole(String role) {
-		this.role = role;
+	public void setAgeGroup(String AgeGroup) {
+		this.AgeGroup= AgeGroup;
 	}
-	
-	
-	
-	
-	
+	public String getAgeGroup() {
+		return AgeGroup;
+	}
+
 }
