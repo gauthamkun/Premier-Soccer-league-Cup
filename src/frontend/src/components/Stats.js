@@ -30,9 +30,19 @@ class Stats extends Component {
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Position</td>
+                    <td>1</td>
                     <td>Arizona State University </td>
                     <td>92</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Michigan State University </td>
+                    <td>85</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>California State University </td>
+                    <td>79</td>
                   </tr>
                 </tbody>
             </table>
