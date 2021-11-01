@@ -8,8 +8,9 @@ class TeamRegistration extends React.Component {
       super(props);
       this.state = {
           email:'',
-          password:'',
-          role :'',
+          TeamName:'',
+          Division :'',
+          AgeGroup :'',
           message:''
       };
       this.handleDropdownChange = this.handleDropdownChange.bind(this);
@@ -36,8 +37,9 @@ class TeamRegistration extends React.Component {
       e.preventDefault();
 
         const user = {email: this.state.email,
-                    password: this.state.password,
-                    role : this.state.role} 
+                    TeamName: this.state.TeamName,
+                    AgeGroup:this.state.AgeGroup,
+                    Division : this.state.Division} 
             
 
         axios({
@@ -72,40 +74,54 @@ class TeamRegistration extends React.Component {
       return (
         <div className="login-card">
           <div className="login-card__header">
-            Login
+           <h2>Team Registration</h2>
           </div>
           <div className="login-card__controls">
             
             <div className="login-card__control">
-                <label>Roles</label>
+                <label>Divsion</label>
                 <select id="dropdown" onChange={this.handleDropdownChange}>
-                <option value="Select Role">Select Role</option>
-                <option value="Player">Player</option>
-                <option value="Coach">Coach</option>
-                <option value="Referee">Referee</option>
-                <option value="Tournament Manager">Tournament Manager</option>
+                <option value="Division">Select Divsion</option>
+                <option value="Red">Red - Divsion 1</option>
+                <option value="Black">Black - Divison 2</option>
+                <option value="Blue">Blue - Divsion 3</option>
+                
+                </select>
+            </div>
+
+            <div className="login-card__control">
+                <label>Age-Group</label>
+                <select id="dropdown" onChange={this.handleDropdownChange}>
+                <option value="Age-Group">Select Group</option>
+                <option value="6">Under 6</option>
+                <option value="8">6 - 8</option>
+                <option value="10">8 -10</option>
+                <option value="14">10 - 14 </option>
+                <option value="16">14 -16 </option>
+                <option value="18">16 -18</option>
+                
                 </select>
             </div>
   
             <div className="login-card__control">
-              <label htmlFor="username">Username</label>
+              <label htmlFor="TeamName">TeamName</label>
               <input
                 type="text"
-                name="email"
+                name="TeamName"
                 className="login-input"
-                placeholder="Username"
-                value = {this.state.email}
+                placeholder="TeamName"
+                value = {this.state.TeamName}
                 onChange = {this.handleChange} />
             </div>
   
             <div className="login-card__control">
-              <label htmlFor="password">Password</label>
+              <label htmlFor="email">email</label>
               <input
-                type="password"
-                name="password"
+                type="text"
+                name="email"
                 className="login-input"
-                placeholder="Password"
-                value = {this.state.password}
+                placeholder="email"
+                value = {this.state.email}
                 onChange = {this.handleChange}
                 />
             </div>
@@ -115,7 +131,7 @@ class TeamRegistration extends React.Component {
               className="login-btn"
               onClick={this
               .submitLogin
-              .bind(this)}>Login</button>
+              .bind(this)}>Register</button>
           </div>
           <div style={{color: "red"}}>
             {this.state.message}
