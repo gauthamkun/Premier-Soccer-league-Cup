@@ -1,12 +1,23 @@
 import React from "react";
-import match from "match.jpg";
+import match from './match.jpg';
 
 const Details=()=>{
-    return <div style={{  
-           backgroundImage: "url(" + match + ")"
-           }}>
-        <table style={{marginLeft:460,width:'500px' }}>
-            <thead style={{backgroundColor:'grey' }}>
+    
+    return <div style={{
+           backgroundImage: "url(" + match + ")",
+           backgroundRepeat: 'no-repeat',
+    width:'600px',
+    opacity:0.7
+     }}
+           >
+             <header style={{
+               marginLeft: 600, width:'500px',
+               backgroundColor: "white"
+             }}>Group Details</header>
+        <table style={{marginLeft:600,width:'500px',
+ }}>
+            <thead style={{backgroundColor:'grey',
+        }}>
                 <tr>
                     <th>Group1</th>
                     <th>Group2</th>
