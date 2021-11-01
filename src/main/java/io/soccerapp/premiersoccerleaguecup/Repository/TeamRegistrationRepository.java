@@ -1,4 +1,4 @@
-package io.soccerapp.premiersoccerleaguecup.Repository;
+package io.soccerapp.premiersoccerleaguecup.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
