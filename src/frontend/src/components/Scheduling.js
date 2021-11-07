@@ -101,20 +101,22 @@ function Scheduler() {
 
 function Scheduling() {
   return (
-    <div style={{  
-      backgroundImage: "url(" + schedule + ")"
-    }}>
-       <Container className="mt-10">
-        <Row>
-          <Col xs={2}>
-            <h4>Select Date:</h4>
-          </Col>
-          <Col >
-            <Scheduler />
-          </Col>
-        </Row>
-      </Container>
-    </div>
+    <div>
+    <Container className="mt-10">
+      <Row>
+      <Col >
+       <img src={schedule} height='300' width='300'/>
+        </Col>
+      
+        <Col xs={2}>
+          <h4>Select Date:</h4>
+        </Col>
+        <Col >
+          <Scheduler />
+        </Col>
+      </Row>
+    </Container>
+  </div>
   );
 }
 
