@@ -1,16 +1,14 @@
 import React  from 'react';
 import axios from 'axios';
 
-
-class TeamRegistration extends React.Component {
+class LoginBox extends React.Component {
 
     constructor(props) {
       super(props);
       this.state = {
           email:'',
-          TeamName:'',
-          Division :'',
-          AgeGroup :'',
+          password:'',
+          role :'',
           message:''
       };
       this.handleDropdownChange = this.handleDropdownChange.bind(this);
@@ -37,14 +35,13 @@ class TeamRegistration extends React.Component {
       e.preventDefault();
 
         const user = {email: this.state.email,
-                    TeamName: this.state.TeamName,
-                    AgeGroup:this.state.AgeGroup,
-                    Division : this.state.Division} 
+                    password: this.state.password,
+                    role : this.state.role} 
             
 
         axios({
           method: "post",
-          url: "http://localhost:8080/v1/TeamRegistration",
+          url: "http://localhost:8080/v1/login",
           data: user,
           headers: { "Content-Type": "application/json" },
         })
@@ -74,54 +71,40 @@ class TeamRegistration extends React.Component {
       return (
         <div className="login-card">
           <div className="login-card__header">
-           <h2>Team Registration</h2>
+            Login
           </div>
           <div className="login-card__controls">
             
             <div className="login-card__control">
-                <label>Divsion</label>
+                <label>Roles</label>
                 <select id="dropdown" onChange={this.handleDropdownChange}>
-                <option value="Division">Select Divsion</option>
-                <option value="Red">Red - Divsion 1</option>
-                <option value="Black">Black - Divison 2</option>
-                <option value="Blue">Blue - Divsion 3</option>
-                
-                </select>
-            </div>
-
-            <div className="login-card__control">
-                <label>Age-Group</label>
-                <select id="dropdown" onChange={this.handleDropdownChange}>
-                <option value="Age-Group">Select Group</option>
-                <option value="6">Under 6</option>
-                <option value="8">6 - 8</option>
-                <option value="10">8 -10</option>
-                <option value="14">10 - 14 </option>
-                <option value="16">14 -16 </option>
-                <option value="18">16 -18</option>
-                
+                <option value="Select Role">Select Role</option>
+                <option value="Player">Player</option>
+                <option value="Coach">Coach</option>
+                <option value="Referee">Referee</option>
+                <option value="Tournament Manager">Tournament Manager</option>
                 </select>
             </div>
   
             <div className="login-card__control">
-              <label htmlFor="TeamName">TeamName</label>
-              <input
-                type="text"
-                name="TeamName"
-                className="login-input"
-                placeholder="TeamName"
-                value = {this.state.TeamName}
-                onChange = {this.handleChange} />
-            </div>
-  
-            <div className="login-card__control">
-              <label htmlFor="email">email</label>
+              <label htmlFor="username">Username</label>
               <input
                 type="text"
                 name="email"
                 className="login-input"
-                placeholder="email"
+                placeholder="Username"
                 value = {this.state.email}
+                onChange = {this.handleChange} />
+            </div>
+  
+            <div className="login-card__control">
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                name="password"
+                className="login-input"
+                placeholder="Password"
+                value = {this.state.password}
                 onChange = {this.handleChange}
                 />
             </div>
@@ -142,4 +125,4 @@ class TeamRegistration extends React.Component {
   
   }
 
-  export default TeamRegistration;
+  export default LoginBox;

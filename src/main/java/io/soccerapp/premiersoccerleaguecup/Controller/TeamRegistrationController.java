@@ -21,7 +21,7 @@ public class TeamRegistrationController {
 	private TeamRegistrationRepository userRepository;
 
 	@CrossOrigin(origins = "*")
-	@PostMapping("/signup")
+	@PostMapping("/TeamRegistration")
 	public String saveUser(@RequestBody TeamRegistration data) {
 		Iterable<TeamRegistration> userlist = userRepository.findAll();
 		Iterator<TeamRegistration> it = userlist.iterator();
@@ -34,20 +34,6 @@ public class TeamRegistrationController {
 		return "User registered " + data.toString();
 	}
 
-	@CrossOrigin(origins = "*")
-	@PostMapping("/login")
-	public String getUser(@RequestBody TeamRegistration data) {
-		Iterable<TeamRegistration> userlist = userRepository.findAll();
 
-		Iterator<TeamRegistration> it = userlist.iterator();
-		while (it.hasNext()) {
-			TeamRegistration logindetail = it.next();
-			if (logindetail.getEmail() != null && logindetail.getEmail().equals(data.getEmail()))
-				return "User logged in";
-		}
-
-		return "User not regsitered";
-
-	}
 
 }

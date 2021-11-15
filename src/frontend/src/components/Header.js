@@ -14,7 +14,7 @@ import Home from './Home'
 import Referee from './Referee';
 import Map from './Map';
 import Rules from './Rules';
-import Form from './Form';
+import Form from './LoginBox';
 
 function Header() {
 
@@ -31,7 +31,7 @@ function Header() {
                     <li> <Link to="/Scheduling">Match Scheduling</Link></li>
                     <li> <Link to="/Referee">Referee section</Link></li>
                     <li> <Link to="/Map">Maps</Link></li>
-                    <li> <Link to="/Form">Login / Sign Up</Link></li>
+                    <li> <Link to="/LoginBox">Login / Sign Up</Link></li>
                 </ul>
             </nav>
         </header>
@@ -43,7 +43,7 @@ function Header() {
             <Route path="/Scheduling"><Scheduling /></Route>
             <Route path="/Referee"><Referee /></Route>
             <Route path="/Map"><Map /></Route>
-            <Route path="/Form"><Form /></Route>
+            <Route path="/LoginBox"><Form /></Route>
             <Route path="/"><Home /> </Route>
         </Switch>
       </Router>
