@@ -1,19 +1,22 @@
 import React  from 'react';
 import axios from 'axios';
 
-
-class TeamRegistration extends React.Component {
+class LoginBox extends React.Component {
 
     constructor(props) {
       super(props);
       this.state = {
           email:'',
-          TeamName:'',
-          Division :'',
-          AgeGroup :'',
+          coachname:'',
+          teamname:'',
+          clubname:'',
+          age :'',
+          division:'',
           message:''
       };
-      this.handleDropdownChange = this.handleDropdownChange.bind(this);
+      
+      this.handleDropdownChange2 = this.handleDropdownChange2.bind(this);
+      this.handleDropdownChange1 = this.handleDropdownChange1.bind(this);
       this.handleChange = this.handleChange.bind(this);
       this.routeChange = this.routeChange.bind(this);
     }
@@ -24,24 +27,40 @@ class TeamRegistration extends React.Component {
         window.location.reload();
         
     }
-    handleDropdownChange=(e) =>{
-      this.setState({ role: e.target.value });
+   
+    handleDropdownChange1=(e) =>{
+      this.setState({ age: e.target.value });
     }
+    handleDropdownChange2=(e) =>{
+      this.setState({ division: e.target.value });
+    }
+   
+  handleChange = (e) =>{
+    const {name,value} = e.target
+    this.setState({[name]:value})
+}
 
-    handleChange = (e) =>{
-        const {name,value} = e.target
-        this.setState({[name]:value})
-    }
+
   
     submitLogin(e) {
       e.preventDefault();
-
+       
         const user = {email: this.state.email,
-                    TeamName: this.state.TeamName,
-                    AgeGroup:this.state.AgeGroup,
-                    Division : this.state.Division} 
+                    coachname: this.state.coachname,
+                    teamname: this.state.teamname,
+                    clubname: this.state.clubname,
+                    division: this.state.division,
+                    age: this.state.age
+      
+                   } 
             
-
+                   e.preventDefault();
+  this.setState({ coachname: '' });
+  this.setState({ teamname: '' });
+  this.setState({ clubname: '' });
+  this.setState({age: " "});
+  this.setState({ email: '' });
+  this.setState({message:'Successfully Registered'})
         axios({
           method: "post",
           url: "http://localhost:8080/api/savelogin",
@@ -74,44 +93,30 @@ class TeamRegistration extends React.Component {
       return (
         <div className="login-card">
           <div className="login-card__header">
-           <h2>Team Registration</h2>
+            TeamRegistration
           </div>
           <div className="login-card__controls">
             
+           
             <div className="login-card__control">
-                <label>Divsion</label>
-                <select id="dropdown" onChange={this.handleDropdownChange}>
-                <option value="Division">Select Divsion</option>
-                <option value="Red">Red - Divsion 1</option>
-                <option value="Black">Black - Divison 2</option>
-                <option value="Blue">Blue - Divsion 3</option>
-                
-                </select>
-            </div>
-
-            <div className="login-card__control">
-                <label>Age-Group</label>
-                <select id="dropdown" onChange={this.handleDropdownChange}>
-                <option value="Age-Group">Select Group</option>
+                <label>Age</label>
+                <select id="dropdown" onChange={this.handleDropdownChange1}>
+                <option value="Select Age">Select Age</option>
                 <option value="6">Under 6</option>
-                <option value="8">6 - 8</option>
-                <option value="10">8 -10</option>
-                <option value="14">10 - 14 </option>
-                <option value="16">14 -16 </option>
-                <option value="18">16 -18</option>
-                
+                <option value="8">6-8</option>
+                <option value="10">8-10</option>
+                <option value="14">10-14</option>
+                <option value="18">14-18</option> 
                 </select>
             </div>
-  
             <div className="login-card__control">
-              <label htmlFor="TeamName">TeamName</label>
-              <input
-                type="text"
-                name="TeamName"
-                className="login-input"
-                placeholder="TeamName"
-                value = {this.state.TeamName}
-                onChange = {this.handleChange} />
+                <label>Division</label>
+                <select id="dropdown" value={this.state.division} onChange={this.handleDropdownChange2}>
+                <option value="Select Division">Select Division</option>
+                <option value="Red">Red - Top</option>
+                <option value="Blue">Blue - Middle</option>
+                <option value="Black">Black - Low</option>
+                </select>
             </div>
   
             <div className="login-card__control">
@@ -122,6 +127,39 @@ class TeamRegistration extends React.Component {
                 className="login-input"
                 placeholder="email"
                 value = {this.state.email}
+                onChange = {this.handleChange} />
+            </div>
+  
+            <div className="login-card__control">
+              <label htmlFor="coachname">coachname</label>
+              <input
+                type="text"
+                name="coachname"
+                className="login-input"
+                placeholder="Coachname"
+                value = {this.state.coachname}
+                onChange = {this.handleChange}
+                />
+            </div>
+            <div className="login-card__control">
+              <label htmlFor="clubname">clubname</label>
+              <input
+                type="text"
+                name="clubname"
+                className="login-input"
+                placeholder="clubname"
+                value = {this.state.clubname}
+                onChange = {this.handleChange}
+                />
+            </div>
+            <div className="login-card__control">
+              <label htmlFor="teamname">teamname</label>
+              <input
+                type="text"
+                name="teamname"
+                className="login-input"
+                placeholder="teamname"
+                value = {this.state.teamname}
                 onChange = {this.handleChange}
                 />
             </div>
@@ -131,10 +169,15 @@ class TeamRegistration extends React.Component {
               className="login-btn"
               onClick={this
               .submitLogin
+<<<<<<< Updated upstream
               .bind(this)}>Register</button>
+=======
+              .bind(this)
+              }>Login</button>
+>>>>>>> Stashed changes
           </div>
           <div style={{color: "red"}}>
-            {this.state.message}
+            <p>{this.state.message}</p>
           </div>
         </div>
       );
@@ -142,4 +185,4 @@ class TeamRegistration extends React.Component {
   
   }
 
-  export default TeamRegistration;
+  export default LoginBox;
