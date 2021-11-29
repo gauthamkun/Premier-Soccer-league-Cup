@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import DatePicker from "react-multi-date-picker";
 import DatePanel from "react-multi-date-picker/plugins/date_panel";
-import { Button, Table, Container, Row, Col } from "react-bootstrap";
+import { Button, Table, Container, Row, Col, Dropdown } from "react-bootstrap";
 import React from "react"
+import axios from 'axios';
 
 function Teams({ selectedDates }) {
 
@@ -51,11 +52,36 @@ function Teams({ selectedDates }) {
   );
 }
 
+// handleDropdownChange1=(e) =>{
+//   this.setState({ground:e.target.value});
+// }
+// handleChange2=(e) =>{
+//   this.setState({team1:e.target.value});
+// }
+// handleChange3=(e) =>{
+//   this.setState({team2:e.target.value});
+// }
+// handleChange4=(e) =>{
+//   this.setState({date:e.target.value});
+// }
+
+axios({
+  method: "post",
+  url: "http://localhost:8080/v1/Scheduling",
+})
+
 function Scheduler() {
   const [value, setValue] = useState([]);
   const [showTeams, setTeams] = useState(false);
+  const [dropdownItems,setDropdownItems] = useState(["Ground1","Ground2","Ground3","Ground4","Ground5","Ground6","Ground7","Ground8","Ground9"]);
+  function removeItem(e){
+    console.log(e.target.innerText);
+      let filteredArray = dropdownItems.filter(item => item !== e.target.innerText)
+      setDropdownItems(filteredArray);
+  }
 
   return (
+    <div>
     <div>
       <DatePicker
         multiple
@@ -67,6 +93,23 @@ function Scheduler() {
         Submit
       </Button>
       {showTeams ? <Teams selectedDates={value} /> : null}
+    </div>
+    <div>
+      <Dropdown>
+        <Dropdown.Toggle variant="success" id="dropdown-basic">
+            Ground Scheduling
+        </Dropdown.Toggle>
+{
+  console.log(dropdownItems)
+}
+  <Dropdown.Menu>
+    {dropdownItems.map((item)=>
+      <Dropdown.Item onClick={removeItem} value = {item}>{item}</Dropdown.Item>
+    )
+    }
+  </Dropdown.Menu>
+</Dropdown>
+    </div>
     </div>
   );
 }
