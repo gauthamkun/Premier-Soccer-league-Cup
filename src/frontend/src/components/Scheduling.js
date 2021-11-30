@@ -4,19 +4,24 @@ import DatePanel from "react-multi-date-picker/plugins/date_panel";
 import { Button, Table, Container, Row, Col, Dropdown } from "react-bootstrap";
 import React from "react"
 import axios from 'axios';
+import createUtilityClassName from "react-bootstrap/esm/createUtilityClasses";
 
-function Teams({ selectedDates }) {
+function Teams({ selectedDates,selectedgrounds }) {
 
   const [data, setData] = useState([]);
-
+  const[teams, setTeams]=useState(["Newcastle","Brentford","Leeds United","Crystal Palace"]);
+  const[teams1, setTeams1]=useState(["Norwich City","West Ham","Everton","Man United"]);
   useEffect(() => {
     
     const data = selectedDates.map((date) => {
       return {
         date: date.format("dddd DD MMMM YYYY"),
-        team1: "USA",
-        team2: "Germany",
-        venue: "USA stadium",
+        Venue1: "Ground1",
+        Venue2: "Ground2",
+        Venue3: "Ground3",
+        Venue4: "Ground4",
+        Venue5: "Ground5",
+        Venue6: "Ground6",
       };
     });
   
@@ -30,40 +35,30 @@ function Teams({ selectedDates }) {
       <thead>
         <tr>
           <th>Date</th>
-          <th>Team 1</th>
-          <th>Team 2</th>
+          <th>Team1</th>
+          <th>Team2</th>
           <th>Venue</th>
         </tr>
       </thead>
       <tbody>
-        {data?.map((date) => {
+        {console.log(data)}
+        {data?.map((date,i) => {
           return (
             <tr key={date.date}>
               <td>{date.date}</td>
-              <td>{date.team1}</td>
-              <td>{date.team2}</td>
-              <td>{date.venue}</td>
+              <td>{teams[Math.floor(Math.random()*teams.length)]}</td>
+              <td>{teams1[Math.floor(Math.random()*teams1.length)]}</td>
+              <td>{selectedgrounds[i]}</td>
             </tr>
           );
         })}
+        
       </tbody>
     </Table>
     </div>
   );
 }
 
-// handleDropdownChange1=(e) =>{
-//   this.setState({ground:e.target.value});
-// }
-// handleChange2=(e) =>{
-//   this.setState({team1:e.target.value});
-// }
-// handleChange3=(e) =>{
-//   this.setState({team2:e.target.value});
-// }
-// handleChange4=(e) =>{
-//   this.setState({date:e.target.value});
-// }
 
 axios({
   method: "post",
@@ -73,11 +68,13 @@ axios({
 function Scheduler() {
   const [value, setValue] = useState([]);
   const [showTeams, setTeams] = useState(false);
-  const [dropdownItems,setDropdownItems] = useState(["Ground1","Ground2","Ground3","Ground4","Ground5","Ground6","Ground7","Ground8","Ground9"]);
+  const [dropdownItems,setDropdownItems] = useState(["Ground1","Ground2","Ground3","Ground4","Ground5","Ground6"]);
+  const[selectedgrounds, setselectedgrounds]=useState([]);
   function removeItem(e){
     console.log(e.target.innerText);
       let filteredArray = dropdownItems.filter(item => item !== e.target.innerText)
       setDropdownItems(filteredArray);
+      setselectedgrounds([...selectedgrounds, e.target.innerText]);
   }
 
   return (
@@ -92,7 +89,7 @@ function Scheduler() {
       <Button className="mx-3" variant="success" onClick={() => setTeams(true)}>
         Submit
       </Button>
-      {showTeams ? <Teams selectedDates={value} /> : null}
+      {showTeams ? <Teams selectedDates={value} selectedgrounds={selectedgrounds}/> : null}
     </div>
     <div>
       <Dropdown>
@@ -136,3 +133,5 @@ function Scheduling() {
 }
 
 export default Scheduling;
+
+
