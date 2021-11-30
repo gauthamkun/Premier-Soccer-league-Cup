@@ -13,7 +13,7 @@ const Referee=()=>{
                     <th>Referee Name</th>
                     <th>Reg No</th>
                     <th>Selected</th>
-                    <th>Team</th>
+                    
                 </tr>
             </thead>
             <tbody>
@@ -24,7 +24,7 @@ const Referee=()=>{
                       <button type="button">Yes</button>
                       <button type="button">No</button>
                     </td>
-                    <td>Aus vs Eng</td>
+                    
                 </tr>
                 <tr>
                     <td>Mat sandy</td>
@@ -33,7 +33,7 @@ const Referee=()=>{
                       <button type="button">Yes</button>
                       <button type="button">No</button>
                     </td>
-                    <td>Aus vs Eng</td>
+                    
                 </tr>
                 <tr>
                     <td>Harry potter</td>
@@ -42,7 +42,7 @@ const Referee=()=>{
                       <button type="button">Yes</button>
                       <button type="button">No</button>
                     </td>
-                    <td>Aus vs Eng</td>
+                   
                 </tr>
                 <tr>
                     <td>thomas Jack</td>
@@ -51,7 +51,7 @@ const Referee=()=>{
                       <button type="button">Yes</button>
                       <button type="button">No</button>
                     </td>
-                    <td>Aus vs Eng</td>
+                   
                 </tr>
                 <tr>
                     <td>fedrick write</td>
@@ -60,7 +60,7 @@ const Referee=()=>{
                       <button type="button">Yes</button>
                       <button type="button">No</button>
                     </td>
-                    <td>Aus vs Eng</td>
+                    
                 </tr>
                 <tr>
                     <td>thomas write</td>
@@ -69,7 +69,7 @@ const Referee=()=>{
                       <button type="button">Yes</button>
                       <button type="button">No</button>
                     </td>
-                    <td>Aus vs Eng</td>
+                    
                 </tr>
                 <tr>
                     <td>Gorge thomas</td>
@@ -78,7 +78,7 @@ const Referee=()=>{
                       <button type="button">Yes</button>
                       <button type="button">No</button>
                     </td>
-                    <td>Aus vs Eng</td>
+                    
                 </tr>
                 <tr>
                     <td>daniel Radcliff</td>
@@ -87,7 +87,7 @@ const Referee=()=>{
                       <button type="button">Yes</button>
                       <button type="button">No</button>
                     </td>
-                    <td>Aus vs Eng</td>
+                    
                 </tr>
                 <tr>
                     <td>Bill Thomas</td>
@@ -96,7 +96,7 @@ const Referee=()=>{
                       <button type="button">Yes</button>
                       <button type="button">No</button>
                     </td>
-                    <td>Aus vs Eng</td>
+                    
                 </tr>
                 <tr>
                     <td>Ronn GRanger</td>
@@ -105,7 +105,7 @@ const Referee=()=>{
                       <button type="button">Yes</button>
                       <button type="button">No</button>
                     </td>
-                    <td>Aus vs Eng</td>
+                   
                 </tr>
                 <tr>
                     <td>Suzan thomas</td>
@@ -114,7 +114,7 @@ const Referee=()=>{
                       <button type="button">Yes</button>
                       <button type="button">No</button>
                     </td>
-                    <td>Aus vs Eng</td>
+                    
                 </tr>
                 <tr>
                     <td>Jack hardy</td>
@@ -123,7 +123,7 @@ const Referee=()=>{
                       <button type="button">Yes</button>
                       <button type="button">No</button>
                     </td>
-                    <td>Aus vs Eng</td>
+                   
                 </tr>
                 <tr>
                     <td>Thomas</td>
@@ -132,7 +132,7 @@ const Referee=()=>{
                       <button type="button">Yes</button>
                       <button type="button">No</button>
                     </td>
-                    <td>Aus vs Eng</td>
+                    
                 </tr>
                 <tr>
                     <td>Hardy</td>
@@ -141,7 +141,7 @@ const Referee=()=>{
                       <button type="button">Yes</button>
                       <button type="button">No</button>
                     </td>
-                    <td>Aus vs Eng</td>
+                    
                 </tr>
                 <tr>
                     <td>George Thomas</td>
@@ -150,7 +150,7 @@ const Referee=()=>{
                       <button type="button">Yes</button>
                       <button type="button">No</button>
                     </td>
-                    <td>Aus vs Eng</td>
+                   
                 </tr>
             </tbody>    
             </table>
