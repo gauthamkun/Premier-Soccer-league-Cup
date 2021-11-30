@@ -1,18 +1,20 @@
 package io.soccerapp.premiersoccerleaguecup.Java;
 
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 import javax.persistence.Table;
 
 @Entity
-<<<<<<< Updated upstream
-@Table(name = "TeamRegistration")
-=======
-@Table(name = "Team3")
->>>>>>> Stashed changes
+
+@Table(name = "Teamtable")
+
 public class TeamRegistration {
 	
 	@Id
@@ -26,12 +28,14 @@ public class TeamRegistration {
 	}
 
 	private String coachname;
-
+    
 	private String clubname;
-
+   
 	private String teamname;
 	
 	private String division;
+
+	private String gender;
 	
 
 	
@@ -45,12 +49,12 @@ public class TeamRegistration {
 	
 	@Override
 	public String toString() {
-		return "TeamRegistration [id=" + id + ", email=" + email + ", Coachname=" + coachname + ", Teamname=" + teamname +", Clubname=" + clubname +", divsion=" + division + "]";
+		return "TeamRegistration [id=" + id + ", email=" + email + ", Coachname=" + coachname + ", Teamname=" + teamname +", Clubname=" + clubname +", divsion=" + division +", gender=" + gender + "]";
 	}
 
 
 
-	public TeamRegistration(String email, String coachname, String division, String age,String teamname,String clubname ) {
+	public TeamRegistration(String email, String coachname, String division, String age,String teamname,String clubname ,String gender ) {
 		super();
 		this.email = email;
 		this.coachname = coachname;
@@ -58,10 +62,9 @@ public class TeamRegistration {
 		this.clubname = clubname;
 		this.age = age;
 		this.division = division;
+		this.gender = gender;
 		
 	}
-
-
 
 	public long getId() {
 		return id;
@@ -69,6 +72,14 @@ public class TeamRegistration {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+    
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 	public void setEmail(String email) {

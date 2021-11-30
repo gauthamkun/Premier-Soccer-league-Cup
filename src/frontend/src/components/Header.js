@@ -14,13 +14,9 @@ import Home from './Home'
 import Referee from './Referee';
 import Map from './Map';
 import Rules from './Rules';
-<<<<<<< Updated upstream
-import Form from './Form';
-=======
-import Form from './LoginBox';
+//import Form from './LoginBox';
 import RefereeRegistration from './RefereeRegistration';
 import Players from './Players';
->>>>>>> Stashed changes
 
 function Header() {
 
@@ -37,7 +33,7 @@ function Header() {
                     <li> <Link to="/Scheduling">Match Scheduling</Link></li>
                     <li> <Link to="/Players">Referee section</Link></li>
                     <li> <Link to="/Map">Maps</Link></li>
-                    <li> <Link to="/Form">Login / Sign Up</Link></li>
+                  
                 </ul>
             </nav>
         </header>
@@ -49,7 +45,7 @@ function Header() {
             <Route path="/Scheduling"><Scheduling /></Route>
             <Route path="/Players"><Players /></Route>
             <Route path="/Map"><Map /></Route>
-            <Route path="/Form"><Form /></Route>
+          
             <Route path="/"><Home /> </Route>
         </Switch>
       </Router>

@@ -12,23 +12,22 @@ class LoginBox extends React.Component {
           clubname:'',
           age :'',
           division:'',
-          message:''
+          message:'',
+          gender:''
       };
-      
+      this.onValueChange = this.onValueChange.bind(this);
       this.handleDropdownChange2 = this.handleDropdownChange2.bind(this);
       this.handleDropdownChange1 = this.handleDropdownChange1.bind(this);
       this.handleChange = this.handleChange.bind(this);
-      this.routeChange = this.routeChange.bind(this);
+      
     }
   
-   
-    routeChange = (e) =>{
-        //history.push('/admin');
-        window.location.reload();
-        
+    onValueChange(event) {
+      this.setState({
+        gender: event.target.value
+      });
     }
-   
-    handleDropdownChange1=(e) =>{
+     handleDropdownChange1=(e) =>{
       this.setState({ age: e.target.value });
     }
     handleDropdownChange2=(e) =>{
@@ -41,6 +40,8 @@ class LoginBox extends React.Component {
 }
 
 
+
+
   
     submitLogin(e) {
       e.preventDefault();
@@ -50,7 +51,8 @@ class LoginBox extends React.Component {
                     teamname: this.state.teamname,
                     clubname: this.state.clubname,
                     division: this.state.division,
-                    age: this.state.age
+                    age: this.state.age,
+                    gender :this.state.gender
       
                    } 
             
@@ -60,28 +62,24 @@ class LoginBox extends React.Component {
   this.setState({ clubname: '' });
   this.setState({age: " "});
   this.setState({ email: '' });
-  this.setState({message:'Successfully Registered'})
+  console.log(this.state.gender)
         axios({
           method: "post",
-          url: "http://localhost:8080/api/savelogin",
+          url: "http://localhost:8080/v1/TeamRegistration",
           data: user,
           headers: { "Content-Type": "application/json" },
         })
           .then((response)=> {
-              if(response.data === "User is already present" && !(this.state.role ===  'Tournament Manager')){
+              if(response.data === "No"){
                 this.setState({
-                  message : 'Please select appropriate role',
+                  message : 'User already registered',
                 })
-              }else if(response.data === "User registered" ){
+              }else if(response.data === "Yes" ){
                 this.setState({
-                  message : 'Please select appropriate role',
+                  message : 'Successfully registered',
                 })
-              } else if(response.data === "User is already present" && (this.state.role ===  'Tournament Manager')){
-                this.routeChange();
-              }
-            
-            
-          })
+              } 
+            })
           .catch(function (response) {
             //handle error
           });
@@ -89,8 +87,14 @@ class LoginBox extends React.Component {
 
     }
   
+  
     render() {
+      var current = new Date();
+      var expiry = new Date("December 01, 2021 17:39:00")
       return (
+        <div>
+        {
+        current.getTime() < expiry.getTime()?<div>
         <div className="login-card">
           <div className="login-card__header">
             TeamRegistration
@@ -98,8 +102,9 @@ class LoginBox extends React.Component {
           <div className="login-card__controls">
             
            
-            <div className="login-card__control">
-                <label>Age</label>
+            <div className="loginsss">
+                <label><b>Age</b><br></br></label>
+                
                 <select id="dropdown" onChange={this.handleDropdownChange1}>
                 <option value="Select Age">Select Age</option>
                 <option value="6">Under 6</option>
@@ -109,8 +114,8 @@ class LoginBox extends React.Component {
                 <option value="18">14-18</option> 
                 </select>
             </div>
-            <div className="login-card__control">
-                <label>Division</label>
+            <div className="loginsss">
+                <label><b>Division</b><br></br></label>
                 <select id="dropdown" value={this.state.division} onChange={this.handleDropdownChange2}>
                 <option value="Select Division">Select Division</option>
                 <option value="Red">Red - Top</option>
@@ -120,7 +125,7 @@ class LoginBox extends React.Component {
             </div>
   
             <div className="login-card__control">
-              <label htmlFor="email">email</label>
+              <label htmlFor="email"><b>Email</b></label>
               <input
                 type="text"
                 name="email"
@@ -131,7 +136,7 @@ class LoginBox extends React.Component {
             </div>
   
             <div className="login-card__control">
-              <label htmlFor="coachname">coachname</label>
+              <label htmlFor="coachname"><b>Coach Name</b></label>
               <input
                 type="text"
                 name="coachname"
@@ -142,7 +147,7 @@ class LoginBox extends React.Component {
                 />
             </div>
             <div className="login-card__control">
-              <label htmlFor="clubname">clubname</label>
+              <label htmlFor="clubname"><b>Club Name</b></label>
               <input
                 type="text"
                 name="clubname"
@@ -153,7 +158,7 @@ class LoginBox extends React.Component {
                 />
             </div>
             <div className="login-card__control">
-              <label htmlFor="teamname">teamname</label>
+              <label htmlFor="teamname"><b>Team Name</b></label>
               <input
                 type="text"
                 name="teamname"
@@ -163,23 +168,52 @@ class LoginBox extends React.Component {
                 onChange = {this.handleChange}
                 />
             </div>
-  
-            <button
+            <div className="radio">
+          <label>
+            <input
+              type="radio"
+              value="Male"
+              checked={this.state.gender === "Male"}
+              onChange={this.onValueChange}
+            />
+            Male
+          </label>
+        </div>
+        <div className="radio">
+          <label>
+            <input
+              type="radio"
+              value="Female"
+              checked={this.state.gender === "Female"}
+              onChange={this.onValueChange}
+            />
+            Female
+          </label>
+        </div>
+        <div className="radio">
+          <label>
+            <input
+              type="radio"
+              value="Other"
+              checked={this.state.gender === "Other"}
+              onChange={this.onValueChange}
+            />
+            Other
+          </label>
+        </div>
+          <button
               type="button"
               className="login-btn"
               onClick={this
               .submitLogin
-<<<<<<< Updated upstream
               .bind(this)}>Register</button>
-=======
-              .bind(this)
-              }>Login</button>
->>>>>>> Stashed changes
           </div>
           <div style={{color: "red"}}>
             <p>{this.state.message}</p>
           </div>
         </div>
+   </div>:<p>Application process in not available</p> }
+    </div>
       );
     }
   
