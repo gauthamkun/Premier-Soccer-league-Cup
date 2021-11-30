@@ -1,13 +1,20 @@
 package io.soccerapp.premiersoccerleaguecup.Java;
 
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "TeamRegistration")
+
+@Table(name = "Teamtable")
+
 public class TeamRegistration {
 	
 	@Id
@@ -20,12 +27,20 @@ public class TeamRegistration {
 		return email;
 	}
 
-	private String TeamName;
+	private String coachname;
+    
+	private String clubname;
+   
+	private String teamname;
 	
-	private String Division;
+	private String division;
 
-	private String AgeGroup;
+	private String gender;
 	
+
+	
+	private String age;
+
 	public TeamRegistration() {
 		
 	}
@@ -34,20 +49,22 @@ public class TeamRegistration {
 	
 	@Override
 	public String toString() {
-		return "TeamRegistration [id=" + id + ", email=" + email + ", TeamName=" + TeamName + ", Division=" + Division + " , AgeGroup=" + AgeGroup + "]";
+		return "TeamRegistration [id=" + id + ", email=" + email + ", Coachname=" + coachname + ", Teamname=" + teamname +", Clubname=" + clubname +", divsion=" + division +", gender=" + gender + "]";
 	}
 
 
 
-	public TeamRegistration(String email, String TeamName, String Division,String AgeGroup) {
+	public TeamRegistration(String email, String coachname, String division, String age,String teamname,String clubname ,String gender ) {
 		super();
 		this.email = email;
-		this.TeamName = TeamName;
-		this.Division = Division;
-		this.AgeGroup = AgeGroup;
+		this.coachname = coachname;
+		this.teamname = teamname;
+		this.clubname = clubname;
+		this.age = age;
+		this.division = division;
+		this.gender = gender;
+		
 	}
-
-
 
 	public long getId() {
 		return id;
@@ -56,31 +73,61 @@ public class TeamRegistration {
 	public void setId(long id) {
 		this.id = id;
 	}
+    
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	public String getTeamName() {
-		return TeamName;
+	public String getCoachname() {
+		return coachname;
 	}
 
-	public void setTeamName(String TeamName) {
-		this.TeamName = TeamName;
+	public void setCoachname(String coachname) {
+		this.coachname = coachname;
+	}
+	public String getTeamname() {
+		return teamname;
 	}
 
-	public String getDivisionRole() {
-		return Division;
+	public void setTeamname(String teamname) {
+		this.teamname = teamname;
 	}
-	public void setDivision(String Division) {
-		this.Division= Division;
-	}
-
-	public void setAgeGroup(String AgeGroup) {
-		this.AgeGroup= AgeGroup;
-	}
-	public String getAgeGroup() {
-		return AgeGroup;
+	public String getClubname() {
+		return clubname;
 	}
 
+	public void setClubname(String clubname) {
+		this.clubname = clubname;
+	}
+
+	public String getDivision() {
+		return division;
+	}
+
+	public void setDivision(String division) {
+		this.division = division;
+	}
+	public String getAge() {
+		return age;
+	}
+
+	public void setAge(String age) {
+		this.age = age;
+	}
+	
+	
+	
+	
+	
 }
+
+
+

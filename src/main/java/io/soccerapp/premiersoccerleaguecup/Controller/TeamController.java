@@ -1,4 +1,4 @@
-package io.soccerapp.premiersoccerleaguecup.controller;
+package io.soccerapp.premiersoccerleaguecup.Controller;
 
 import java.util.List;
 
