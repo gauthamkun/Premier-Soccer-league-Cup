@@ -1,4 +1,4 @@
-package io.soccerapp.premiersoccerleaguecup.Controller;
+package io.soccerapp.premiersoccerleaguecup.controller;
 
 import java.util.Iterator;
 
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import io.soccerapp.premiersoccerleaguecup.Java.TeamRegistration;
-import io.soccerapp.premiersoccerleaguecup.Repository.TeamRegistrationRepository;
+import io.soccerapp.premiersoccerleaguecup.repository.TeamRegistrationRepository;
 
 @RestController
 @RequestMapping("/v1")
