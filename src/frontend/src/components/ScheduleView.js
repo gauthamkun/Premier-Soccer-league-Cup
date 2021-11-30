@@ -1,6 +1,5 @@
 import React from "react";
 
-
 const Details=()=>{
     
     return <div style={{
@@ -27,34 +26,28 @@ const Details=()=>{
             </thead>
             <tbody>
                 <tr>
-                    <td>Newcastle</td>
-                    <td>Brentford</td>
+                    <td>Arizona State</td>
+                    <td>Cal State</td>
                     <td>Ground1</td>
                     <td>05 November 2021</td>
                 </tr>
                 <tr>
-                    <td>Leeds United</td>
-                    <td>Crystal Palace</td>
+                    <td>Texas State</td>
+                    <td>Stanford University</td>
                     <td>Ground3</td>
                     <td>06 November 2021</td>
                 </tr>
                 <tr>
-                    <td>Man City</td>
-                    <td>West Ham</td>
+                    <td>Washington State University</td>
+                    <td>Carnegie Mellon University</td>
                     <td>Ground4</td>
                     <td>10 November 2021</td>
                 </tr>
                 <tr>
-                    <td>Chelsea</td>
-                    <td>Man United</td>
+                    <td>UC Berkley</td>
+                    <td>UC Riverdale</td>
                     <td>Ground4</td>
                     <td>10 November 2021</td>
-                </tr>
-                <tr>
-                    <td>Man United</td>
-                    <td>West Ham</td>
-                    <td>Ground5</td>
-                    <td>11 November 2022</td>
                 </tr>
             </tbody>    
             </table>
@@ -75,20 +68,20 @@ const Details=()=>{
             </thead>
             <tbody>
                 <tr>
-                    <td>Newcastle</td>
-                    <td>Crystal Palace</td>
+                    <td>Arizona State</td>
+                    <td>Stanford University</td>
                     <td>Ground1</td>
                     <td>15 November 2021</td>
                 </tr>
                 <tr>
-                    <td>Leeds United</td>
-                    <td>Chelsea</td>
+                    <td>UC Berkley</td>
+                    <td>Carnegie Mellon University</td>
                     <td>Ground3</td>
                     <td>16 November 2021</td>
                 </tr>
                 <tr>
-                    <td>Man City</td>
-                    <td>Man United</td>
+                    <td>UC Riveside</td>
+                    <td>Cal State</td>
                     <td>Ground4</td>
                     <td>17 November 2021</td>
                 </tr>
@@ -111,8 +104,8 @@ const Details=()=>{
             </thead>
             <tbody>
                 <tr>
-                    <td>Newcastle</td>
-                    <td>Leeds United</td>
+                    <td>Carnegie Mellon University</td>
+                    <td>Uc Riverside</td>
                     <td>Ground1</td>
                     <td>30 November 2021</td>
                 </tr>

@@ -9,19 +9,13 @@ import createUtilityClassName from "react-bootstrap/esm/createUtilityClasses";
 function Teams({ selectedDates,selectedgrounds }) {
 
   const [data, setData] = useState([]);
-  const[teams, setTeams]=useState(["Newcastle","Brentford","Leeds United","Crystal Palace"]);
-  const[teams1, setTeams1]=useState(["Norwich City","West Ham","Everton","Man United"]);
+  const[teams, setTeams]=useState(["Arizona State","Cal State","Texas State","Stanford University"]);
+  const[teams1, setTeams1]=useState(["Washington State University","Carnegie Mellon University","UC Berkley","UC Riverdale"]);
   useEffect(() => {
     
     const data = selectedDates.map((date) => {
       return {
         date: date.format("dddd DD MMMM YYYY"),
-        Venue1: "Ground1",
-        Venue2: "Ground2",
-        Venue3: "Ground3",
-        Venue4: "Ground4",
-        Venue5: "Ground5",
-        Venue6: "Ground6",
       };
     });
   
@@ -41,7 +35,7 @@ function Teams({ selectedDates,selectedgrounds }) {
         </tr>
       </thead>
       <tbody>
-        {console.log(data)}
+        {console.log(teams1)}
         {data?.map((date,i) => {
           return (
             <tr key={date.date}>
