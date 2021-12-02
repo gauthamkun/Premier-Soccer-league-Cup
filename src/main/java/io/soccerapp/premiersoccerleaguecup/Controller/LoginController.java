@@ -23,12 +23,13 @@ import io.soccerapp.premiersoccerleaguecup.utility.*;
 
 
 @RestController
-@RequestMapping("/login")
-@CrossOrigin(origins = "http://localhost:3000")
+@RequestMapping("/v1")
+
+@CrossOrigin(origins ="*")
 public class LoginController {
 	@Autowired
 	LoginServices loginServices;
-	@RequestMapping(value = "/check", method = RequestMethod.GET)
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ResponseEntity<Map<String,Integer>> checkLogin(HttpServletRequest request, HttpServletResponse response, @RequestParam("email") String email, @RequestParam("password") String password ) throws Exception{
 		System.out.println("Inside Controller");
 		Map<String,Integer> userRoleData = new HashMap<String, Integer>();
@@ -45,8 +46,8 @@ public class LoginController {
 		return new ResponseEntity<Map<String, Integer>>(userRoleData, HttpStatus.OK);
 
 	}
+	@CrossOrigin(origins = "*")
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<Void> register(HttpServletRequest request, HttpServletResponse response, @RequestBody UserDTO userDTO ) throws Exception{
 		System.out.println("Inside Controller");
 		try {

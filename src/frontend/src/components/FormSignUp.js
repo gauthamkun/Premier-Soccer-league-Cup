@@ -23,10 +23,10 @@ const FormSignup = ({ submitForm }) => {
     };
     console.log(data);
     axios
-      .post("http://localhost:8082/LoginAPIBackend/login/register", data)
+      .post("http://localhost:8080/v1/register", data)
       .then((response) => {
         alert("Registered successfully");
-        window.location = "http://localhost:3000/Login";
+        window.location = "http://localhost:3000/v1/Login";
       })
       .catch((error) => {
         alert(error.description);
@@ -94,7 +94,7 @@ const FormSignup = ({ submitForm }) => {
         </button>
         <span className="form-input-login">
           Already have an account? Login{" "}
-          <a href="http://localhost:3000/Login">here</a>
+          <a href="http://localhost:3000/v1/Login">here</a>
         </span>
       </form>
     </div>

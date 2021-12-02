@@ -90,7 +90,7 @@ class LoginBox extends React.Component {
   
     render() {
       var current = new Date();
-      var expiry = new Date("December 01, 2021 17:39:00")
+      var expiry = new Date("December 05, 2021 17:39:00")
       return (
         <div>
         {

@@ -33,7 +33,7 @@ class LoginBox extends React.Component {
 
   submitRegister(e) {
     e.preventDefault();
-    window.location = "http://localhost:3000/register";
+    window.location = "http://localhost:3000/v1/register";
   }
 
   submitLogin(e) {
@@ -46,13 +46,13 @@ class LoginBox extends React.Component {
     };
 
     axios
-      .get("http://localhost:8082/LoginAPIBackend/login/check", {
+      .get("http://localhost:8080/v1/login", {
         params: { email: this.state.email, password: this.state.password },
       })
       .then((response) => {
         console.log(response);
         window.localStorage.setItem("role", response.data.role);
-        window.location = "http://localhost:3000/";
+        window.location = "http://localhost:3000/v1";
         const searchValue = window.localStorage.getItem("role");
       })
       .catch(function (response) {

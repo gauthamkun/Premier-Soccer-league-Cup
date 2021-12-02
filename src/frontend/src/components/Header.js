@@ -13,7 +13,7 @@ import Form from "./Form";
 import Login from "./Login";
 import RefereeRegistration from "./RefereeRegistration";
 import TeamRegistrationView from "./TeamRegistrationView";
-import SchedulingView from "./SchedulingView";
+import ScheduleView from "./ScheduleView";
 
 function Header() {
   const userRole = localStorage.getItem("role");
@@ -79,6 +79,10 @@ function Header() {
               {" "}
               <Link to="/Login">Login / Sign Up</Link>
             </li>
+            <li>
+              {" "}
+              <Link to="/Logout">Login / Sign Up</Link>
+            </li>
           </ul>
         </nav>
       </header>
@@ -105,7 +109,7 @@ function Header() {
         <Route path="/Map">
           <Map />
         </Route>
-        <Route path="/Login">
+        <Route path="/login">
           <Login />
         </Route>
         <Route path="/register">
@@ -117,8 +121,8 @@ function Header() {
         <Route path="/TeamRegistrationView">
           <TeamRegistrationView />
         </Route>
-        <Route path="/SchedulingView">
-          <SchedulingView />
+        <Route path="/ScheduleView">
+          <ScheduleView />
         </Route>
         <Route path="/">
           <Home />{" "}
