@@ -3,8 +3,9 @@ package io.soccerapp.premiersoccerleaguecup.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import io.soccerapp.premiersoccerleaguecup.Repository.UsersRepository;
 import io.soccerapp.premiersoccerleaguecup.model.*;
-import io.soccerapp.premiersoccerleaguecup.repo.*;
+import io.soccerapp.premiersoccerleaguecup.Repository.*;
 import io.soccerapp.premiersoccerleaguecup.utility.*;
 
 @Service

@@ -37,12 +37,12 @@ function Header() {
             {userRole == 1 || userRole == 3 ? (
               <li>
                 {" "}
-                <Link to="/TeamRegistration">Team Registration</Link>
+                <Link to="/TeamRegistrationView">Team Registration</Link>
               </li>
             ) : (
               <li>
                 {" "}
-                <Link to="/TeamRegistrationView">Team Registration</Link>
+                <Link to="/TeamRegistration">Team Registration</Link>
               </li>
             )}
             <li>
@@ -57,7 +57,7 @@ function Header() {
             ) : (
               <li>
                 {" "}
-                <Link to="/SchedulingView">Match Scheduling</Link>
+                <Link to="/ScheduleView">Match Scheduling</Link>
               </li>
             )}
             {userRole == 1 || userRole == 4 ? (
